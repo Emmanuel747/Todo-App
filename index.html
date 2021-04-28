@@ -1,0 +1,93 @@
+<html class="videosection">
+  <video autoplay muted id="bg-video" loop volume='0.5'>
+    <source src="Sci-Fi-Tunnel.mp4" type="video/mp4">
+  </video>
+  <head>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Truculenta:wght@500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Tomorrow|Noto+Sans&display=swap" rel="stylesheet">
+    <!-- jQuery and jQuery-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- our hard work below -->
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+    <title>Project_05 - ToDo.App</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <span>TODO APP</span>
+      </header>
+      <aside class="left-drawer">
+        <button class="action add-todo">
+          <i class="material-icons">add_circle</i>
+          <span class="action-text">Create New Todo</span>
+        </button>
+        <button class="action remove-completed">
+          <i class="material-icons">check_circle</i>
+          <span class="action-text">Remove Completed Todos</span>
+        </button>
+        <button class="action remove-expired">
+          <i class="material-icons">delete_sweep</i>
+          <span class="action-text">Remove Expired Todos</span>
+        </button>
+        <button class="volumeSlider">
+          <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+        </button>
+        <button class="action videoControl">
+          <i class="material-icons volume_status off">volume_off</i>
+          <span class="action-text">Volume Off</span>
+        </button>
+      </aside>
+      <main>
+        <section class="todo-list">
+          <h3 class="list-title">Pending Todos</h3>
+          <div class="content pending-todos"></div>
+        </section>
+        <section class="todo-list">
+          <h3 class="list-title">Completed Todos</h3>
+          <div class="content completed-todos"></div>
+        </section>
+        <section class="todo-list">    
+          <h3 class="list-title">Expired Todos</h3>
+          <div class="content expired-todos"></div>
+        </section>
+      </main>
+      <div class="modal">
+        <div class="content">
+          <h3>Create New Todo</h3>
+          <form class="todo-form" action="" method="">
+            <label for="todo-title">Todo Title</label>
+            <input type="text" id="todo-title" required>
+            <h5>This is a required field</h5>
+            <label for="todo-due-date">Due Date</label>
+            <input type="date" id="todo-due-date" required>
+            <h5>This is a required field</h5>
+            <label for="todo-description">Description</label>
+            <textarea id="todo-description" columns="40" rows="5"></textarea>
+            <div class="actions">
+              <button type="button" class="action create-todo when-valid">
+                <i class="material-icons">add_circle</i>
+                <span class="action-text">Create</span>
+              </button>
+              <button disabled class="action create-todo when-invalid">
+                <i class="material-icons">add_circle</i>
+                <span class="action-text">Create</span>
+              </button>
+              <button type="button" class="action cancel-create-todo">
+                <i class="material-icons">cancel</i>
+                <span class="action-text">Cancel</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
